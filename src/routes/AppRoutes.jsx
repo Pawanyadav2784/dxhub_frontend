@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 // Guards
 import { GuestRoute, ProtectedRoute, RoleRoute } from "./guards"
 
-// Pages
+// E-Commerce Pages
 import Home from "../pages/home/Home"
 import Shop from "../pages/shop/Shop"
 import Login from "../pages/auth/Login"
@@ -19,16 +19,6 @@ import AddProduct from "../pages/seller/AddProduct"
 import SellerProducts from "../pages/seller/SellerProducts"
 import Orders from "../pages/seller/Orders"
 
-import Rings from "../pages/shop/Rings"
-import Earrings from "../pages/shop/Earrings"
-import Bracelets from "../pages/shop/Bracelets"
-import Pendant from "../pages/shop/Pendant"
-import Necklace from "../pages/shop/Necklace"
-import Mangalsutra from "../pages/shop/Mangalsutra"
-import Dhoop from "../pages/incense/Dhoop"
-import Agarbatti from "../pages/incense/Agarbatti"
-import HariDarshan from "../pages/incense/HariDarshan"
-import PoojaKits from "../pages/incense/PoojaKits"
 import ProductDetails from "../pages/shop/ProductDetails"
 import Cart from "../pages/cart/Cart"
 import Checkout from "../pages/checkout/Checkout"
@@ -42,11 +32,28 @@ import SupportTickets from "../pages/support/SupportTickets"
 import Returns from "../pages/returns/Returns"
 import AdminReturns from "../pages/admin/AdminReturns"
 
+// 🛡️ DXHUB Enterprise MDM Architecture (MVC Pattern)
+import WebLayout from "../pages/web/views/components/WebLayout"
+import WebHomeView from "../pages/web/views/pages/WebHomeView"
+import WebAboutView from "../pages/web/views/pages/WebAboutView"
+import WebServicesView from "../pages/web/views/pages/WebServicesView"
+import WebContactView from "../pages/web/views/pages/WebContactView"
+
 const AppRoutes = () => {
   return (
     <Routes>
-      {/* ── PUBLIC ROUTES ─────────────────────────────── */}
-      <Route path="/" element={<Home />} />
+      {/* ── 🛡️ DXHUB ENTERPRISE MDM (MVC PATTERN ON ROOT) ───── */}
+      {/* Jab program run ho to default root '/' par MDM corporate site khulegi */}
+      <Route element={<WebLayout />}>
+        <Route path="/" element={<WebHomeView />} />
+        <Route path="/about-mdm" element={<WebAboutView />} />
+        <Route path="/services-mdm" element={<WebServicesView />} />
+        <Route path="/contact-mdm" element={<WebContactView />} />
+      </Route>
+
+      {/* ── 🛍️ DXHUB E-COMMERCE STORE ROUTES ─────────────────── */}
+      {/* Web Navbar ke "Store" button click karne par ye storefront open hoga */}
+      <Route path="/store" element={<Home />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
@@ -69,7 +76,6 @@ const AppRoutes = () => {
       <Route path="/terms" element={<Policy />} />
 
       {/* ── GUEST-ONLY ROUTES (logged-in user redirect hoga) ── */}
-      {/* Logged in hoke /login ya /register khologe to home pe aoge */}
       <Route
         path="/login"
         element={

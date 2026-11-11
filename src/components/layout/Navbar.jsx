@@ -122,7 +122,7 @@ const Navbar = () => {
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-6 font-medium text-xs lg:text-sm">
-          <Link to="/" className="hover:text-yellow-300 whitespace-nowrap transition">
+          <Link to="/store" className="hover:text-yellow-300 whitespace-nowrap transition">
             Home
           </Link>
 
@@ -205,6 +205,13 @@ const Navbar = () => {
             About
           </Link>
 
+          <Link
+            to="/"
+            className="bg-white/20 hover:bg-white text-white hover:text-blue-900 font-extrabold px-3 py-1 rounded-full text-xs border border-white/40 shadow-xs whitespace-nowrap transition hover:scale-105"
+          >
+            🛡️ MDM Platform
+          </Link>
+
           {isVendor && (
             <Link 
               to="/seller/dashboard" 
@@ -247,7 +254,14 @@ const Navbar = () => {
                     >
                       My Orders
                     </Link>
-                    {isVendor && (
+                    <Link
+            to="/"
+            className="bg-white/20 hover:bg-white text-white hover:text-blue-900 font-extrabold px-3 py-1 rounded-full text-xs border border-white/40 shadow-xs whitespace-nowrap transition hover:scale-105"
+          >
+            🛡️ MDM Platform
+          </Link>
+
+          {isVendor && (
                       <Link
                         to="/seller/dashboard"
                         className="block px-4 py-2 hover:bg-gray-100 text-sm"
@@ -411,7 +425,14 @@ const Navbar = () => {
               >
                 My Orders
               </Link>
-              {isVendor && (
+              <Link
+            to="/"
+            className="bg-white/20 hover:bg-white text-white hover:text-blue-900 font-extrabold px-3 py-1 rounded-full text-xs border border-white/40 shadow-xs whitespace-nowrap transition hover:scale-105"
+          >
+            🛡️ MDM Platform
+          </Link>
+
+          {isVendor && (
                 <Link
                   to="/seller/dashboard"
                   className="block py-2 hover:text-yellow-300 text-sm"

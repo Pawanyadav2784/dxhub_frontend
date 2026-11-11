@@ -1,7 +1,5 @@
-
-
 import { useEffect, useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import AppRoutes from "./routes/AppRoutes"
 import Navbar from "./components/layout/Navbar"
 import Footer from "./components/layout/Footer"
@@ -25,20 +23,30 @@ const NavigateInjector = () => {
 }
 
 function App() {
+  const location = useLocation()
+
+  // 🛡️ Determine if current path belongs to the Web/MDM platform
+  const isWebRoute = 
+    location.pathname === '/' ||
+    location.pathname.startsWith('/about-mdm') ||
+    location.pathname.startsWith('/services-mdm') ||
+    location.pathname.startsWith('/contact-mdm')
+
   return (
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <RouteSEO />
-      <NavigateInjector />   {/* ✅ CartContext ko navigate inject karta hai */}
+      <NavigateInjector />
 
-      <Navbar />
+      {/* Render E-Commerce Navbar only when browsing the Store/Shop */}
+      {!isWebRoute && <Navbar />}
 
-      <main className="flex-grow pt-14">
+      <main className={`flex-grow ${!isWebRoute ? 'pt-14' : ''}`}>
         <AppRoutes />
       </main>
 
-      <Footer />
-
+      {/* Render E-Commerce Footer only when browsing the Store/Shop */}
+      {!isWebRoute && <Footer />}
     </div>
   )
 }
