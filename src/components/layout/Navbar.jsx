@@ -205,13 +205,6 @@ const Navbar = () => {
             About
           </Link>
 
-          <Link
-            to="/"
-            className="bg-white/20 hover:bg-white text-white hover:text-blue-900 font-extrabold px-3 py-1 rounded-full text-xs border border-white/40 shadow-xs whitespace-nowrap transition hover:scale-105"
-          >
-            🛡️ MDM Platform
-          </Link>
-
           {isVendor && (
             <Link 
               to="/seller/dashboard" 
@@ -254,14 +247,7 @@ const Navbar = () => {
                     >
                       My Orders
                     </Link>
-                    <Link
-            to="/"
-            className="bg-white/20 hover:bg-white text-white hover:text-blue-900 font-extrabold px-3 py-1 rounded-full text-xs border border-white/40 shadow-xs whitespace-nowrap transition hover:scale-105"
-          >
-            🛡️ MDM Platform
-          </Link>
-
-          {isVendor && (
+                    {isVendor && (
                       <Link
                         to="/seller/dashboard"
                         className="block px-4 py-2 hover:bg-gray-100 text-sm"
@@ -425,14 +411,7 @@ const Navbar = () => {
               >
                 My Orders
               </Link>
-              <Link
-            to="/"
-            className="bg-white/20 hover:bg-white text-white hover:text-blue-900 font-extrabold px-3 py-1 rounded-full text-xs border border-white/40 shadow-xs whitespace-nowrap transition hover:scale-105"
-          >
-            🛡️ MDM Platform
-          </Link>
-
-          {isVendor && (
+              {isVendor && (
                 <Link
                   to="/seller/dashboard"
                   className="block py-2 hover:text-yellow-300 text-sm"

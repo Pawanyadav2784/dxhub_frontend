@@ -98,7 +98,7 @@ const ServicesHeader = ({ activeTab, onTabChange }) => {
                     <motion.div
                       layoutId="sectorTabActive"
                       transition={{ type: 'spring', stiffness: 450, damping: 32 }}
-                      className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl sm:rounded-full shadow-sm shadow-amber-500/20"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl sm:rounded-full shadow-sm shadow-blue-600/20"
                     />
                   )}
                   <span className={`relative z-10 flex items-center gap-2 ${!isIt ? 'text-white' : 'text-slate-600 hover:text-slate-900'}`}>
