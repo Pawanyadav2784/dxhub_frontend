@@ -112,23 +112,20 @@ const WebNavbar = () => {
             })}
           </nav>
 
-          {/* ── RIGHT ACTION AREA (COMPACT ROYAL BLUE STORE BUTTON WITH AUTO SHINE) ── */}
+          {/* ── RIGHT ACTION AREA (BALANCED YELLOW STORE BUTTON WITH 3D TROLLEY) ── */}
           <div className="hidden sm:flex items-center gap-3">
             <Link
               to="/store"
-              className="relative group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12.5px] font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-sm shadow-blue-600/25 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 overflow-hidden"
+              className="relative group inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[13px] font-extrabold tracking-wide uppercase text-slate-950 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:to-amber-400 border border-amber-300 shadow-sm shadow-amber-500/25 hover:shadow-md hover:shadow-amber-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 overflow-hidden"
             >
               <motion.span
                 aria-hidden="true"
                 animate={{ x: ['-130%', '220%'] }}
                 transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 3.6, ease: 'easeInOut' }}
-                className="pointer-events-none absolute inset-y-0 w-10 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]"
+                className="pointer-events-none absolute inset-y-0 w-10 bg-gradient-to-r from-transparent via-white/45 to-transparent skew-x-[-20deg]"
               />
-              <Trolley3DIcon className="w-3.5 h-3.5 relative z-10" />
-              <span className="tracking-wide relative z-10">Store</span>
-              <span className="relative z-10 text-[8.5px] bg-white/20 px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider text-white">
-                Shop
-              </span>
+              <Trolley3DIcon className="w-[19px] h-[19px] relative z-10 drop-shadow-[0_1px_2px_rgba(15,23,42,0.28)]" />
+              <span className="relative z-10">STORE</span>
             </Link>
           </div>
 
@@ -136,10 +133,10 @@ const WebNavbar = () => {
           <div className="flex md:hidden items-center gap-2">
             <Link
               to="/store"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-extrabold text-white bg-blue-600 hover:bg-indigo-700 shadow-sm transition-all duration-300"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black tracking-wider uppercase text-slate-950 bg-gradient-to-r from-yellow-400 to-amber-400 border border-amber-300 shadow-sm transition-all duration-300"
             >
-              <Trolley3DIcon className="w-3.5 h-3.5" />
-              <span>Store</span>
+              <Trolley3DIcon className="w-[18px] h-[18px] drop-shadow-[0_1px_2px_rgba(15,23,42,0.28)]" />
+              <span>STORE</span>
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -178,10 +175,10 @@ const WebNavbar = () => {
             <Link
               to="/store"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-xs font-extrabold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-sm transition-all duration-300"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-black tracking-wider uppercase text-slate-950 bg-gradient-to-r from-yellow-400 to-amber-400 hover:from-yellow-300 hover:to-amber-300 border border-amber-300 shadow-sm transition-all duration-300"
             >
-              <Trolley3DIcon className="w-4 h-4" />
-              <span>Go to DXHUB E-Commerce Store</span>
+              <Trolley3DIcon className="w-5 h-5 drop-shadow-[0_1px_2px_rgba(15,23,42,0.25)]" />
+              <span>STORE</span>
             </Link>
           </div>
         </div>

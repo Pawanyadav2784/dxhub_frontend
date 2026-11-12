@@ -51,9 +51,9 @@ const ServiceCard = ({ service, activeTab, index }) => {
       case 'Cpu': return <Cpu className={`${baseClass} text-blue-600 group-hover:text-white`} />;
       case 'Layers': return <Layers className={`${baseClass} text-indigo-600 group-hover:text-white`} />;
       case 'Smartphone': return <Smartphone className={`${baseClass} text-blue-600 group-hover:text-white`} />;
-      case 'Tv': return <Tv className={`${baseClass} text-amber-600 group-hover:text-white`} />;
-      case 'Zap': return <Zap className={`${baseClass} text-amber-600 group-hover:text-white`} />;
-      case 'Store': return <Store className={`${baseClass} text-orange-600 group-hover:text-white`} />;
+      case 'Tv': return <Tv className={`${baseClass} text-blue-600 group-hover:text-white`} />;
+      case 'Zap': return <Zap className={`${baseClass} text-indigo-600 group-hover:text-white`} />;
+      case 'Store': return <Store className={`${baseClass} text-sky-600 group-hover:text-white`} />;
       case 'Sparkles': return <Sparkles className={`${baseClass} text-blue-600 group-hover:text-white`} />;
       default: return <ShieldCheck className={`${baseClass} text-blue-600 group-hover:text-white`} />;
     }
@@ -69,44 +69,34 @@ const ServiceCard = ({ service, activeTab, index }) => {
       transition={{ duration: 0.3, delay: index * 0.05 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative p-8 rounded-3xl border border-slate-200/85 ${isIt ? 'hover:border-blue-400/75 hover:shadow-[0_22px_45px_-12px_rgba(37,99,235,0.18)]' : 'hover:border-amber-400/75 hover:shadow-[0_22px_45px_-12px_rgba(217,119,6,0.18)]'} bg-white shadow-[0_8px_28px_rgba(15,23,42,0.04)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group overflow-hidden select-none`}
+      className="relative p-8 rounded-3xl border border-slate-200/85 hover:border-blue-400/75 hover:shadow-[0_22px_45px_-12px_rgba(37,99,235,0.18)] bg-white shadow-[0_8px_28px_rgba(15,23,42,0.04)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group overflow-hidden select-none"
     >
       {/* Top expanding gradient accent bar */}
-      <span
-        className={`pointer-events-none absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-gradient-to-r ${
-          isIt ? 'from-blue-600 to-sky-400' : 'from-amber-500 to-orange-400'
-        } transition-all duration-500 ease-out`}
-      />
+      <span className="pointer-events-none absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-gradient-to-r from-blue-600 to-sky-400 transition-all duration-500 ease-out" />
       {/* Dynamic Cursor Radial Spotlight */}
       <div
         className="pointer-events-none absolute inset-0 transition-opacity duration-300"
         style={{
           opacity: cursor.active ? 1 : 0,
-          background: isIt
-            ? `radial-gradient(400px circle at ${cursor.x}px ${cursor.y}px, rgba(37, 99, 235, 0.10), transparent 68%)`
-            : `radial-gradient(400px circle at ${cursor.x}px ${cursor.y}px, rgba(217, 119, 6, 0.10), transparent 68%)`
+          background: `radial-gradient(400px circle at ${cursor.x}px ${cursor.y}px, rgba(37, 99, 235, 0.10), transparent 68%)`
         }}
       />
 
       <div className="space-y-4 relative z-10">
         <div className="flex items-center justify-between">
-          <div className={`p-3.5 rounded-2xl border transition-all duration-300 group-hover:scale-110 group-hover:-rotate-3 shadow-2xs ${
-            isIt
-              ? 'bg-blue-50 border-blue-200/80 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-transparent'
-              : 'bg-amber-50 border-amber-200/80 group-hover:bg-gradient-to-br group-hover:from-amber-500 group-hover:to-orange-500 group-hover:border-transparent'
-          }`}>
+          <div className="p-3.5 rounded-2xl border bg-blue-50 border-blue-200/80 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-transparent transition-all duration-300 group-hover:scale-110 group-hover:-rotate-3 shadow-2xs">
             {getIcon(service.icon)}
           </div>
-          <span className={`text-[10px] font-bold uppercase px-3 py-1 rounded-full ${isIt ? 'bg-blue-50 text-blue-700 border border-blue-200' : 'bg-amber-50 text-amber-700 border border-amber-200'} tracking-wider`}>
+          <span className="text-[10px] font-bold uppercase px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 tracking-wider">
             {service.badge}
           </span>
         </div>
 
         <div>
-          <span className={`text-xs font-bold uppercase tracking-wider ${isIt ? 'text-blue-600' : 'text-amber-600'}`}>
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
             {service.highlight}
           </span>
-          <h3 className={`text-xl sm:text-2xl font-black text-slate-900 mt-1 transition-colors ${isIt ? 'group-hover:text-blue-700' : 'group-hover:text-amber-700'}`}>
+          <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1 transition-colors group-hover:text-blue-700">
             {service.title}
           </h3>
           <p className="text-sm text-slate-600 mt-2 leading-relaxed font-normal">
@@ -121,7 +111,7 @@ const ServiceCard = ({ service, activeTab, index }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
             {service.features.map((f, i) => (
               <div key={i} className="flex items-start gap-2">
-                <CheckCircle2 className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${isIt ? 'text-blue-600' : 'text-amber-600'}`} />
+                <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 shrink-0 text-blue-600" />
                 <span className="leading-tight">{f}</span>
               </div>
             ))}
@@ -141,7 +131,7 @@ const ServiceCard = ({ service, activeTab, index }) => {
         ) : (
           <Link
             to="/store"
-            className="inline-flex items-center gap-2 text-xs font-bold text-amber-700 group-hover:bg-amber-600 group-hover:text-white group-hover:px-4 group-hover:py-1.5 rounded-full transition-all duration-300"
+            className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:px-4 group-hover:py-1.5 rounded-full transition-all duration-300"
           >
             <span>Procure from DXHUB Wholesale Store</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
